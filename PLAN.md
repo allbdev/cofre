@@ -24,7 +24,7 @@ Press a hotkey, type three letters, hit Enter: the secret is on the clipboard, a
 | D2 | Platform | Native macOS 15+, SwiftUI with AppKit where SwiftUI can't (global hotkey, floating panel, pasteboard) | Native feel, Touch ID, Keychain |
 | D3 | Storage | The macOS **data protection Keychain**: one generic-password item per secret, `WhenUnlockedThisDeviceOnly`, not synchronizable, guarded by `.userPresence`. Name and dates live in the item's attributes. **No database, no home-made storage crypto** | Apple's audited storage; boring on purpose |
 | D4 | Network | None. App Sandbox **without** the network entitlement | "Nothing leaves the Mac" is something anyone can verify in the entitlements, not a promise |
-| D5 | Unlock | Touch ID or the Mac password unlocks a session; values are readable until it locks: after 5 minutes idle (setting), on sleep, screen lock or quit. **Names are listed without unlocking** | One prompt per burst of work, not per copy; names alone aren't secrets |
+| D5 | Unlock | Touch ID or the Mac password unlocks a session; names and values are readable until it locks: after 5 minutes idle (setting), on sleep, screen lock or quit. **Names need the unlock too**: the Keychain won't return even the attributes of `.userPresence` items without authentication, so while locked the app shows "locked" instead of the list, and the hotkey panel asks for Touch ID as soon as it opens (originally "names are listed without unlocking"; changed 2026-11-25 after the Keychain refused it) | One prompt per burst of work, not per copy. Copying needs the prompt anyway, so asking when the panel opens costs nothing extra |
 | D6 | Clipboard | Written with `org.nspasteboard.ConcealedType` and `TransientType` (clipboard managers skip it), cleared after 30 s (setting), but only if the clipboard still holds our value | Don't leave secrets around; never clobber something the user copied since |
 | D7 | Quick access | Global hotkey (default ⌃⌥K, setting) opens a floating search panel: type, ↑/↓, Enter copies, Esc closes. Menu bar item with the same search. Main window for managing items | Speed is the whole product |
 | D8 | Backup | Encrypted export file (`.cofre`): passphrase → PBKDF2-HMAC-SHA256 (600 000 iterations) → AES-256-GCM. Import asks what to do with name clashes (skip / replace / keep both). The app reminds you when the last export is stale | `ThisDeviceOnly` items don't survive a dead Mac or a migration; without export, security becomes data loss |
@@ -53,7 +53,7 @@ Cofre/ (app target)
 
 1. **Main window.** Search field, list of names (with "updated" date), copy button per row, ⌘N to add, context menu (copy, rename, replace value, delete). Lock state and a lock button in the toolbar. A banner when the last export is stale.
 2. **Add / replace sheet.** Name field; value: a password field **or** "Paste from clipboard" (for multi-line values like PEM keys), showing only "42 characters ✓". Optionally clears the clipboard after taking the value.
-3. **Quick panel** (hotkey) and **menu bar** menu: search + list + Enter to copy.
+3. **Quick panel** (hotkey) and **menu bar** menu: search + list + Enter to copy. Locked, the panel asks for Touch ID when it opens; the menu bar window shows an Unlock button.
 4. **Export / import sheets.** Passphrase (twice for export, min 12 characters) and the conflict choice on import.
 5. **Settings.** Clipboard clear delay, auto-lock timeout, hotkey, launch at login.
 

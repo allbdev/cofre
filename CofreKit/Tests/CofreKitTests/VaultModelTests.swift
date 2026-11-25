@@ -47,11 +47,20 @@ struct VaultModelTests {
 
     // MARK: - Add, rename, replace, delete
 
-    @Test func addsWithoutUnlocking() async {
+    @Test func addUnlocksFirstToCheckTheNames() async {
         await harness.add("  GitHub token ", "ghp_123")
         #expect(model.secrets.map(\.name) == ["GitHub token"])
-        #expect(!model.isUnlocked)
-        #expect(await harness.store.unlockCount == 0)
+        #expect(model.isUnlocked)
+        #expect(await harness.store.unlockCount == 1)
+    }
+
+    @Test func cancelledUnlockAddsNothing() async {
+        await harness.store.setUnlockFailure(.authenticationCancelled)
+        #expect(await !model.add(name: "Token", value: SecretValue("x")))
+        #expect(model.error == nil)
+        await harness.store.setUnlockFailure(nil)
+        await model.unlock()
+        #expect(model.secrets.isEmpty)
     }
 
     @Test func refusesBadInputWithAMessage() async {
@@ -81,7 +90,7 @@ struct VaultModelTests {
     @Test func renamingToTheSameNameDoesNothing() async {
         let token = await harness.add("Token", "x")
         #expect(await model.rename(token.id, to: " Token "))
-        #expect(await harness.store.unlockCount == 0)
+        #expect(await harness.store.unlockCount == 1)  // the add's
     }
 
     @Test func replaceValueChangesWhatGetsCopied() async {
@@ -121,17 +130,19 @@ struct VaultModelTests {
     }
 
     @Test func cancelledUnlockIsQuiet() async {
-        let token = await harness.add("Token", "x")
+        await harness.add("Token", "x")
+        await model.lock()
         await harness.store.setUnlockFailure(.authenticationCancelled)
-        #expect(await !model.copy(token.id))
+        #expect(await !model.unlock())
         #expect(model.error == nil)
-        #expect(harness.pasteboard.contents == nil)
+        #expect(model.namesAreLocked)
     }
 
     @Test func failedUnlockIsReported() async {
-        let token = await harness.add("Token", "x")
+        await harness.add("Token", "x")
+        await model.lock()
         await harness.store.setUnlockFailure(.authenticationFailed)
-        #expect(await !model.copy(token.id))
+        #expect(await !model.unlock())
         #expect(model.error == .authenticationFailed)
     }
 
@@ -158,6 +169,29 @@ struct VaultModelTests {
         #expect(await !harness.store.isUnlocked)
         #expect(harness.pasteboard.contents == nil)
         #expect(model.lastCopy == nil)
+    }
+
+    // The Keychain won't list names of protected items while locked (`PLAN.md` D5).
+    @Test func lockedNamesAreHiddenQuietlyUntilUnlock() async {
+        await harness.add("Token", "x")
+        await model.lock()
+        #expect(model.secrets.isEmpty)
+        #expect(model.namesAreLocked)
+        await model.reload()
+        #expect(model.secrets.isEmpty)
+        #expect(model.namesAreLocked)
+        #expect(model.error == nil)
+        #expect(model.isLoaded)
+        #expect(await model.unlock())
+        #expect(model.secrets.map(\.name) == ["Token"])
+        #expect(!model.namesAreLocked)
+    }
+
+    @Test func anEmptyVaultIsNotLocked() async {
+        await model.reload()
+        #expect(!model.namesAreLocked)
+        #expect(!model.isUnlocked)
+        #expect(await harness.store.unlockCount == 0)
     }
 
     @Test func idleTimeoutLocks() async {

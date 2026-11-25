@@ -32,6 +32,7 @@ public actor InMemorySecretStore: SecretStore {
 
     public func list() throws(VaultError) -> [SecretSummary] {
         if let listFailure { throw listFailure }
+        guard unlocked || entries.isEmpty else { throw .locked }
         return entries.values.map(\.summary).sorted { $0.createdAt < $1.createdAt }
     }
 

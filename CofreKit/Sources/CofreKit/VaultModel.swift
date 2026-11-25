@@ -45,6 +45,8 @@ public final class VaultModel {
     public var query = ""
     public private(set) var isLoaded = false
     public private(set) var isUnlocked = false
+    /// The store has secrets but won't list their names until an unlock (`PLAN.md` D5).
+    public private(set) var namesAreLocked = false
     public private(set) var lastCopy: CopyReceipt?
     public private(set) var backupStatus: BackupStatus = .nothingToBackUp
     /// The store can't be used at all (an unsigned build can't reach the Keychain).
@@ -82,8 +84,7 @@ public final class VaultModel {
 
     public func reload() async {
         do {
-            secrets = try await store.list()
-            isUnlocked = await store.isUnlocked
+            try await refreshList()
             isStoreUnavailable = false
         } catch .keychainUnavailable {
             isStoreUnavailable = true
@@ -91,7 +92,6 @@ public final class VaultModel {
             self.error = error
         }
         isLoaded = true
-        refreshBackupStatus()
     }
 
     // MARK: - Changes
@@ -99,6 +99,8 @@ public final class VaultModel {
     @discardableResult
     public func add(name: String, value: SecretValue) async -> Bool {
         await perform {
+            // The clash check needs the names, and the names need an unlock.
+            try await ensureUnlocked()
             let name = try SecretName.validate(name, against: secrets)
             try Self.validate(value)
             _ = try await store.add(name: name, value: value)
@@ -178,6 +180,12 @@ public final class VaultModel {
         isUnlocked = false
         clipboard.clearIfStillOurs()
         lastCopy = nil
+        do {
+            try await refreshList()
+        } catch {
+            // Locking must not raise an alert; the next reload reports a broken store.
+            secrets = []
+        }
     }
 
     /// Runs as the app quits: clear our clipboard value now, synchronously.
@@ -249,6 +257,7 @@ public final class VaultModel {
     public func prepareImport(data: Data, passphrase: String) async -> ImportPreview? {
         var preview: ImportPreview?
         _ = await perform {
+            try await ensureUnlocked()
             let payload = try await Self.offMain { [exportCodec] in
                 try exportCodec.decode(data, passphrase: passphrase)
             }
@@ -269,13 +278,13 @@ public final class VaultModel {
     ) async -> ImportSummary? {
         var summary: ImportSummary?
         _ = await perform {
+            try await ensureUnlocked()
             let items = preview.payload.items
             let plan = ImportPlanner.plan(
                 incoming: items.map(\.name),
                 existing: secrets,
                 strategy: strategy
             )
-            if plan.replacedCount > 0 { try await ensureUnlocked() }
             var addedIDs: [Int: UUID] = [:]
             for (stepIndex, step) in plan.steps.enumerated() {
                 switch step {
@@ -317,6 +326,20 @@ public final class VaultModel {
         }
         try await store.unlock(reason: String(localized: "unlock your secrets"))
         isUnlocked = true
+        try await refreshList()
+    }
+
+    /// Reads the names. A locked store hides them: that's a state, not an error.
+    private func refreshList() async throws(VaultError) {
+        do {
+            secrets = try await store.list()
+            namesAreLocked = false
+        } catch .locked {
+            secrets = []
+            namesAreLocked = true
+        }
+        isUnlocked = await store.isUnlocked
+        refreshBackupStatus()
     }
 
     /// Unlocks if needed, runs `operation`, and unlocks once more if the session expired meanwhile.
@@ -336,11 +359,10 @@ public final class VaultModel {
     private func afterChange() async {
         preferences.lastChangeAt = now()
         do {
-            secrets = try await store.list()
+            try await refreshList()
         } catch {
             self.error = error
         }
-        refreshBackupStatus()
     }
 
     private func refreshBackupStatus() {

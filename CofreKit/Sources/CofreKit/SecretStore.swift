@@ -17,8 +17,11 @@ public struct SecretSummary: Identifiable, Hashable, Sendable {
 
 /// Where secrets live. Stores don't validate names; `VaultModel` does that before calling them.
 ///
-/// Listing, adding and deleting never need an unlock. Reading a value, renaming and replacing a
-/// value need `unlock(reason:)` first and throw `VaultError.locked` otherwise.
+/// Adding and deleting never need an unlock. Listing, reading a value, renaming and replacing a
+/// value need `unlock(reason:)` first and throw `VaultError.locked` otherwise: the Keychain won't
+/// even return the names of `.userPresence` items without authentication. An empty store lists
+/// as empty, locked or not. Stores never show an authentication prompt of their own outside
+/// `unlock(reason:)`.
 public protocol SecretStore: Sendable {
     func list() async throws(VaultError) -> [SecretSummary]
     func add(name: String, value: SecretValue) async throws(VaultError) -> SecretSummary

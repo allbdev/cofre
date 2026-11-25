@@ -23,10 +23,15 @@ public actor KeychainSecretStore: SecretStore {
 
     // MARK: - SecretStore
 
+    /// Names and dates only. The Keychain wants authentication even for these on `.userPresence`
+    /// items, and without a context it runs its own generic prompt, which steals focus from the
+    /// quick panel. So: unlocked, the session's context is reused; locked, a context that refuses
+    /// interaction makes the Keychain fail with `.locked` instead (`PLAN.md` D5).
     public func list() throws(VaultError) -> [SecretSummary] {
         var query = baseQuery
         query[kSecMatchLimit] = kSecMatchLimitAll
         query[kSecReturnAttributes] = true
+        query[kSecUseAuthenticationContext] = context ?? Self.nonInteractiveContext()
 
         var result: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
@@ -127,6 +132,12 @@ public actor KeychainSecretStore: SecretStore {
             kSecUseDataProtectionKeychain: true,
             kSecAttrSynchronizable: false,
         ]
+    }
+
+    private static func nonInteractiveContext() -> LAContext {
+        let context = LAContext()
+        context.interactionNotAllowed = true
+        return context
     }
 
     private func itemQuery(_ id: UUID) -> [CFString: Any] {

@@ -6,11 +6,13 @@ import Testing
 struct InMemorySecretStoreTests {
     let store = InMemorySecretStore()
 
-    @Test func addsAndListsWithoutUnlocking() async throws {
+    @Test func addsWithoutUnlockingButListsOnlyUnlocked() async throws {
+        #expect(try await store.list().isEmpty)  // empty lists as empty, locked or not
         let added = try await store.add(name: "Token", value: SecretValue("abc"))
-        let listed = try await store.list()
-        #expect(listed == [added])
         #expect(await !store.isUnlocked)
+        await #expect(throws: VaultError.locked) { try await store.list() }
+        try await store.unlock(reason: "test")
+        #expect(try await store.list() == [added])
     }
 
     @Test func readingNeedsAnUnlock() async throws {
@@ -60,6 +62,7 @@ struct InMemorySecretStoreTests {
         let store = InMemorySecretStore(now: { clock.tick() })
         _ = try await store.add(name: "First", value: SecretValue("1"))
         _ = try await store.add(name: "Second", value: SecretValue("2"))
+        try await store.unlock(reason: "test")
         #expect(try await store.list().map(\.name) == ["First", "Second"])
     }
 }

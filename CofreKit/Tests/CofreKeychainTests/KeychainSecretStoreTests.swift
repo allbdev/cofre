@@ -59,12 +59,22 @@ struct KeychainErrorMappingTests {
 struct KeychainSecretStoreIntegrationTests {
     let store = KeychainSecretStore(service: "cofre.tests.\(UUID().uuidString)")
 
-    @Test func addListRenameDelete() async throws {
+    @Test func addAndDeleteWithoutUnlocking() async throws {
         defer { Task { [store] in try? await store.deleteAll() } }
+        #expect(try await store.list().isEmpty)
         let added = try await store.add(name: "Integration token", value: SecretValue("value"))
-        #expect(try await store.list().map(\.id) == [added.id])
         try await store.delete(added.id)
         #expect(try await store.list().isEmpty)
+    }
+
+    /// The Keychain wants authentication even for the names of `.userPresence` items. Locked,
+    /// listing must fail with `.locked`, never fall back to the system's own prompt (which
+    /// stole focus from the quick panel).
+    @Test func listingWhileLockedFailsInsteadOfPrompting() async throws {
+        defer { Task { [store] in try? await store.deleteAll() } }
+        _ = try await store.add(name: "Listed while locked", value: SecretValue("value"))
+        await store.lock()
+        await #expect(throws: VaultError.locked) { try await store.list() }
     }
 
     @Test func readingWithoutUnlockIsRefused() async throws {
