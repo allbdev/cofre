@@ -17,6 +17,22 @@ struct EmptyVaultView: View {
     }
 }
 
+/// Secrets exist, but the Keychain shows their names only after an unlock (`PLAN.md` D5).
+struct LockedVaultView: View {
+    let unlock: () -> Void
+
+    var body: some View {
+        ContentUnavailableView {
+            Label("Cofre is locked", systemImage: "lock")
+        } description: {
+            Text("Unlock to see your secrets.")
+        } actions: {
+            Button("Unlock", action: unlock)
+                .buttonStyle(.borderedProminent)
+        }
+    }
+}
+
 /// The Keychain refused this copy of the app (unsigned build).
 struct KeychainUnavailableView: View {
     var body: some View {

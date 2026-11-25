@@ -7,7 +7,12 @@ struct QuickSearchView: View {
     static let width: CGFloat = 460
     static let height: CGFloat = 340
 
-    var onCopyStarted: () -> Void = {}
+    /// The hotkey panel asks for Touch ID as soon as it opens; the menu bar window doesn't,
+    /// because it closes when the system prompt takes focus.
+    var unlocksOnAppear = false
+    /// True while a system authentication prompt is up, so the panel doesn't take the focus it
+    /// loses for a click elsewhere.
+    var onAuthenticating: (Bool) -> Void = { _ in }
     var onDone: () -> Void
 
     @Environment(AppState.self) private var state
@@ -53,11 +58,14 @@ struct QuickSearchView: View {
 
             footer
         }
-        .frame(width: Self.width, height: Self.height)
+        // At least this tall, and filling whatever the hotkey panel has (its hidden title bar
+        // adds height that would otherwise sit empty under the footer).
+        .frame(width: Self.width)
+        .frame(minHeight: Self.height, maxHeight: .infinity)
         .background(.regularMaterial)
         .onAppear {
             searchFocused = true
-            Task { await state.model.reload() }
+            Task { await loadNames() }
         }
         .onChange(of: query) { selectedIndex = 0 }
     }
@@ -67,6 +75,15 @@ struct QuickSearchView: View {
         if state.model.isStoreUnavailable {
             ContentUnavailableView("Keychain not available", systemImage: "lock.trianglebadge.exclamationmark")
                 .frame(maxHeight: .infinity)
+        } else if state.model.namesAreLocked {
+            ContentUnavailableView {
+                Label("Cofre is locked", systemImage: "lock")
+            } description: {
+                Text("Unlock to see your secrets.")
+            } actions: {
+                Button("Unlock") { Task { await unlock() } }
+            }
+            .frame(maxHeight: .infinity)
         } else if state.model.secrets.isEmpty {
             ContentUnavailableView("No secrets yet", systemImage: "key.horizontal")
                 .frame(maxHeight: .infinity)
@@ -118,17 +135,39 @@ struct QuickSearchView: View {
         selectedIndex = min(max(selectedIndex + delta, 0), results.count - 1)
     }
 
+    /// Names need an unlock (`PLAN.md` D5). From the hotkey, ask right away: the user is about
+    /// to copy, which needs it anyway, so it's the same single prompt, just earlier.
+    private func loadNames() async {
+        await state.model.reload()
+        if unlocksOnAppear, state.model.namesAreLocked {
+            await unlock()
+        }
+    }
+
+    private func unlock() async {
+        onAuthenticating(true)
+        let unlocked = await state.model.unlock()
+        onAuthenticating(false)
+        if unlocked {
+            searchFocused = true
+        } else if unlocksOnAppear {
+            // Cancelled from the hotkey: the user changed their mind.
+            onDone()
+        }
+    }
+
     private func copySelected() {
         guard results.indices.contains(selectedIndex) else { return }
         let id = results[selectedIndex].id
-        onCopyStarted()
+        onAuthenticating(true)
         Task {
             let copied = await state.model.copy(id)
             if copied {
+                // Closing hands focus back to the app you were in; don't grab it first.
                 onDone()
             } else {
                 // Cancelled or failed: stay open so the user can try again.
-                onCopyStarted()
+                onAuthenticating(false)
                 searchFocused = true
             }
         }

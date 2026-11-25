@@ -80,6 +80,8 @@ struct VaultWindow: View {
             ProgressView()
         } else if model.isStoreUnavailable {
             KeychainUnavailableView()
+        } else if model.namesAreLocked {
+            LockedVaultView { Task { await model.unlock() } }
         } else if model.secrets.isEmpty {
             EmptyVaultView { state.sheet = .add }
         } else if model.results.isEmpty {
@@ -116,7 +118,7 @@ struct VaultWindow: View {
                 } label: {
                     Label("Unlock", systemImage: "lock")
                 }
-                .help("Locked. Copying a secret asks for Touch ID or your password.")
+                .help("Locked. Unlock with Touch ID or your password to see and copy your secrets.")
                 .disabled(model.isStoreUnavailable)
             }
         }

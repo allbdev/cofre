@@ -122,6 +122,16 @@
         }
       }
     },
+    "Cofre is locked" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Cofre está trancado"
+          }
+        }
+      }
+    },
     "Cofre is locked. Unlock it to use your secrets." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -397,12 +407,12 @@
         }
       }
     },
-    "Locked. Copying a secret asks for Touch ID or your password." : {
+    "Locked. Unlock with Touch ID or your password to see and copy your secrets." : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trancado. Copiar um segredo pede o Touch ID ou a sua senha."
+            "value" : "Trancado. Destranque com Touch ID ou sua senha para ver e copiar seus segredos."
           }
         }
       }
@@ -857,6 +867,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Destrancar"
+          }
+        }
+      }
+    },
+    "Unlock to see your secrets." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destranque para ver seus segredos."
           }
         }
       }

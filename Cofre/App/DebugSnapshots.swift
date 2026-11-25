@@ -59,6 +59,13 @@
             if let panel = NSApp.windows.first(where: { $0 is QuickPanel && $0.isVisible }) {
                 capture(panel, to: directory.appending(path: "04-quick-panel.png"))
             }
+            quickPanel.close()
+
+            await state.model.lock()
+            try? await Task.sleep(for: .seconds(0.6))
+            if let main = NSApp.windows.first(where: { $0.isVisible && $0.canBecomeMain }) {
+                capture(main, to: directory.appending(path: "05-locked.png"))
+            }
             NSApp.terminate(nil)
         }
 

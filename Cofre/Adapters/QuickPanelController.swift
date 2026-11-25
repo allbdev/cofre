@@ -9,9 +9,9 @@ import SwiftUI
 final class QuickPanelController {
     private let state: AppState
     private var panel: QuickPanel?
-    /// True while a copy waits for Touch ID: the system prompt takes focus, and the panel must
-    /// not close because of that.
-    private var isCopying = false
+    /// True while Touch ID or the password prompt is up: it takes focus, and the panel must not
+    /// close because of that.
+    private var isAuthenticating = false
 
     init(state: AppState) {
         self.state = state
@@ -29,15 +29,29 @@ final class QuickPanelController {
         let panel = self.panel ?? makePanel()
         self.panel = panel
         let content = QuickSearchView(
-            onCopyStarted: { [weak self] in self?.isCopying = true },
+            unlocksOnAppear: true,
+            onAuthenticating: { [weak self] authenticating in
+                self?.authenticationChanged(authenticating)
+            },
             onDone: { [weak self] in
-                self?.isCopying = false
+                self?.isAuthenticating = false
                 self?.close()
             }
         )
         .environment(state)
+        // The title bar is hidden but still reserves a safe area at the top; the search field
+        // belongs right at the edge, like Spotlight.
+        .ignoresSafeArea()
         panel.contentView = NSHostingView(rootView: content)
         position(panel)
+        NSApp.activate()
+        panel.makeKeyAndOrderFront(nil)
+    }
+
+    /// After the system prompt goes away, take the focus back so typing lands in the search field.
+    private func authenticationChanged(_ authenticating: Bool) {
+        isAuthenticating = authenticating
+        guard !authenticating, let panel, panel.isVisible else { return }
         NSApp.activate()
         panel.makeKeyAndOrderFront(nil)
     }
@@ -69,7 +83,7 @@ final class QuickPanelController {
             panel.standardWindowButton(button)?.isHidden = true
         }
         panel.onResignKey = { [weak self] in
-            guard let self, !self.isCopying else { return }
+            guard let self, !self.isAuthenticating else { return }
             self.close()
         }
         panel.onCancel = { [weak self] in self?.close() }
