@@ -16,7 +16,7 @@
   4. Lock the screen (⌃⌘Q) and come back: the next copy asks for Touch ID again.
   5. File → Export…, then delete a secret, then File → Import… the file back (pick "Keep mine" and then "Use the backup's value").
   6. The menu bar key icon: search and copy from there.
-- [ ] **Push.** Nothing is pushed yet; I'll run the security audit and ask first. The first push also runs CI (`macos-26` runner) for the first time.
+- [x] ~~**Push.**~~ First push to `main` after a clean security audit; CI runs on every push (25 Nov 2026).
 
 ## Decisions (quick)
 
