@@ -1,0 +1,32 @@
+// Shared build settings for the Cofre app. Machine-specific values (the team ID) go in the
+// git-ignored Local.xcconfig: copy Local.xcconfig.example and fill it in.
+
+COFRE_BUNDLE_ID_PREFIX = br.com.vinicius-albuquerque
+MARKETING_VERSION = 0.1.0
+CURRENT_PROJECT_VERSION = 1
+
+PRODUCT_NAME = Cofre
+PRODUCT_BUNDLE_IDENTIFIER = $(COFRE_BUNDLE_ID_PREFIX).cofre
+MACOSX_DEPLOYMENT_TARGET = 15.0
+SDKROOT = macosx
+SWIFT_VERSION = 6.0
+
+CODE_SIGN_STYLE = Automatic
+CODE_SIGN_ENTITLEMENTS = Config/Cofre.entitlements
+ENABLE_HARDENED_RUNTIME = YES
+ENABLE_USER_SCRIPT_SANDBOXING = YES
+
+GENERATE_INFOPLIST_FILE = YES
+INFOPLIST_FILE = Config/Info.plist
+INFOPLIST_KEY_CFBundleDisplayName = Cofre
+INFOPLIST_KEY_LSApplicationCategoryType = public.app-category.developer-tools
+INFOPLIST_KEY_NSHumanReadableCopyright = © 2026 Vinícius Albuquerque Barros. MIT License.
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
+ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
+LOCALIZATION_PREFERS_STRING_CATALOGS = YES
+SWIFT_EMIT_LOC_STRINGS = YES
+DEAD_CODE_STRIPPING = YES
+COMBINE_HIDPI_IMAGES = YES
+
+#include? "Local.xcconfig"

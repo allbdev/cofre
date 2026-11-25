@@ -1,0 +1,8 @@
+// Copy to Config/Local.xcconfig (git-ignored) and fill in.
+// Your team ID: Xcode → Settings → Accounts → your team, or developer.apple.com → Membership.
+// A free Apple ID ("Personal Team") is enough to run Cofre on your own Mac.
+
+DEVELOPMENT_TEAM = ABCDE12345
+
+// Forks: use your own reverse-DNS prefix so the bundle ID (and Keychain group) is yours.
+// COFRE_BUNDLE_ID_PREFIX = com.example
