@@ -29,5 +29,5 @@
 ## Later (needs you)
 
 - [ ] **Release builds for other people** (roadmap tasks 33–34: Developer ID, notarization, Homebrew cask) become possible once you're enrolled.
-- [ ] **README screenshots** of the main window: take them with ⇧⌘5 (my snapshot tool can't draw the list rows).
+- [x] ~~**README screenshots.**~~ Taken with demo data, in `docs/screenshots/` (25 Nov 2026).
 - [ ] **The empty `~/Dev/secure-vault` folder** from the first name idea can be deleted.
