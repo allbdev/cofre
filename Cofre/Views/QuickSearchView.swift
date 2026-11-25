@@ -68,6 +68,12 @@ struct QuickSearchView: View {
             Task { await loadNames() }
         }
         .onChange(of: query) { selectedIndex = 0 }
+        // Touch ID takes the key window away; SwiftUI drops a focus request made while the panel
+        // isn't key, so every keystroke afterwards only beeps. Focus again whenever it's key.
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { note in
+            guard note.object is QuickPanel else { return }
+            Task { @MainActor in searchFocused = true }
+        }
     }
 
     @ViewBuilder
