@@ -7,7 +7,8 @@
 
 - [x] ~~**Sign it so it can use the Keychain.**~~ Personal Team added; `Config/Local.xcconfig` has its ID (25 Nov 2026).
 - [x] ~~**First run in Xcode.**~~ Signed with your Personal Team, Keychain working, installed in `/Applications` (25 Nov 2026).
-- [ ] **Re-install by 2 Dec 2026.** Free provisioning profiles last 7 days. When Cofre stops opening (or before), run `scripts/install.sh`. Your secrets stay. A paid developer account ($99/year) removes the 7-day limit.
+- [ ] **Enroll in the Apple Developer Program** (you're enrolling anyway, 25 Nov 2026). Until then the Personal Team profile expires on 2 Dec 2026; `scripts/install.sh` renews it.
+- [ ] **After enrolling, switch teams without losing secrets.** The paid team has a **new team ID**, and Keychain items are tied to it: (1) File → Export… in the current Cofre, (2) put the new ID (developer.apple.com → Membership) in `Config/Local.xcconfig`, (3) `scripts/install.sh`, (4) File → Import…. Skip the export if there's nothing real in it yet.
 - [ ] **Try it for real** (open Cofre from Applications), and tell me what breaks or feels off:
   1. Add a secret by typing, and one with **Paste from Clipboard** (try a multi-line one, like an SSH key).
   2. Double-click a row: Touch ID asks once; copy a second one, which shouldn't ask again. Paste somewhere, wait 30 s, paste again: the clipboard should be empty.
@@ -27,6 +28,6 @@
 
 ## Later (needs you)
 
-- [ ] **Release builds** for other people need a paid Apple Developer account ($99/year) for notarization (roadmap task 33). Only for distributing; running it yourself doesn't need it.
+- [ ] **Release builds for other people** (roadmap tasks 33–34: Developer ID, notarization, Homebrew cask) become possible once you're enrolled.
 - [ ] **README screenshots** of the main window: take them with ⇧⌘5 (my snapshot tool can't draw the list rows).
 - [ ] **The empty `~/Dev/secure-vault` folder** from the first name idea can be deleted.
