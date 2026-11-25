@@ -1,0 +1,28 @@
+# Build output
+.build/
+build/
+DerivedData/
+*.xcresult
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+.swiftpm/
+
+# Local signing (team ID)
+Config/Local.xcconfig
+
+# Never commit exports or secrets
+*.cofre
+.env
+.env.*
+
+# OS / editors
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
