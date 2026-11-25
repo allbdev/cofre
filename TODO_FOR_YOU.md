@@ -1,7 +1,7 @@
 # What I need from you
 
 > Things only you can do (decisions, accounts, signing). Claude keeps this list current while working; newest items at the top of each section.
-> Last updated: 25 Nov 2026. Phases 0–5 are built: the logic has 106 passing tests, and the app builds with no warnings. It hasn't run against the real Keychain yet, because that needs your signing team.
+> Last updated: 25 Nov 2026. Phases 0–5 are built: the logic has 109 passing tests, and the app builds with no warnings. It hasn't run against the real Keychain yet, because that needs your signing team.
 
 ## To do now
 
@@ -12,7 +12,7 @@
 - [ ] **Try it for real** (open Cofre from Applications), and tell me what breaks or feels off:
   1. Add a secret by typing, and one with **Paste from Clipboard** (try a multi-line one, like an SSH key).
   2. Double-click a row: Touch ID asks once; copy a second one, which shouldn't ask again. Paste somewhere, wait 30 s, paste again: the clipboard should be empty.
-  3. Press **⌃⌥K** from another app: the panel opens; type, Enter, then ⌘V into the app you were in.
+  3. ~~Press **⌃⌥K** from another app: the panel asks for Touch ID, then type, Enter, ⌘V into the app you were in.~~ Works (25 Nov 2026).
   4. Lock the screen (⌃⌘Q) and come back: the next copy asks for Touch ID again.
   5. File → Export…, then delete a secret, then File → Import… the file back (pick "Keep mine" and then "Use the backup's value").
   6. The menu bar key icon: search and copy from there.
@@ -20,7 +20,7 @@
 
 ## Decisions (quick)
 
-- [ ] **Hotkey.** ⌃⌥K by default ("K" for key). Settings shows it but can't change it yet (roadmap task 30). Want a different default?
+- [x] ~~**Hotkey.**~~ ⌃⌥K stays the default (25 Nov 2026). Settings can't change it yet (roadmap task 30).
 - [ ] **Dock icon.** Cofre shows in the Dock and the menu bar. Some people prefer menu bar only for this kind of tool; say if you want that (or a setting).
 - [x] ~~**Name.**~~ Cofre (25 Nov 2026). Unique among Mac dev tools; "Cofre …" photo-vault apps exist on the iPhone App Store, and a small Rust CLI called `cofre` exists. If you ever publish on the App Store, use a longer display name ("Cofre — Dev Secrets").
 - [x] ~~**Language.**~~ English + PT-BR (25 Nov 2026).

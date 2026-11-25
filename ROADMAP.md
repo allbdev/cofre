@@ -65,7 +65,7 @@
 ## Phase 4 · Quick access
 
 25. [~] Menu bar item: search + list + copy, "Open Cofre", "Lock", "Quit" — built; needs a manual check
-26. [~] Global hotkey (Carbon `RegisterEventHotKey`, no Accessibility permission) opening a floating panel: type, ↑/↓, Enter copies and closes, Esc closes — built (panel rendering checked); the hotkey itself needs a manual check
+26. [x] Global hotkey (Carbon `RegisterEventHotKey`, no Accessibility permission) opening a floating panel: type, ↑/↓, Enter copies and closes, Esc closes. Locked, the panel asks for Touch ID as it opens (the Keychain needs it even for names) — checked by hand with Touch ID (25 Nov 2026)
 
 **Exit:** a secret gets to the clipboard in one hotkey, a few letters and Enter.
 
