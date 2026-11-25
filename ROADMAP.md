@@ -84,7 +84,7 @@
 ## Phase 6 · Polish and release
 
 30. [ ] Settings: clipboard clear delay, auto-lock timeout, hotkey recorder, launch at login
-31. [ ] App icon, About window
+31. [~] App icon, About window — icon done (vault door, drawn by `scripts/make-icon.swift`); About window to do
 32. [ ] README with screenshots (debug snapshot mode exists: `-CofreSnapshotDir`; the list itself needs ⇧⌘5), `docs/SECURITY.md` (threat model in plain words)
 33. [ ] Signed, notarized release build attached to a GitHub release (needs a paid Apple Developer account)
 34. [ ] Homebrew cask
