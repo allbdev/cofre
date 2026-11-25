@@ -154,7 +154,14 @@ struct SecurityRulesTests {
         let networkKeys = plist.keys.filter { $0.hasPrefix("com.apple.security.network") }
         #expect(networkKeys.isEmpty, "Cofre must never get network entitlements: \(networkKeys)")
         #expect(
-            Set(plist.keys) == ["com.apple.security.app-sandbox", "com.apple.security.files.user-selected.read-write"])
+            Set(plist.keys) == [
+                "com.apple.security.app-sandbox",
+                "com.apple.security.files.user-selected.read-write",
+                "keychain-access-groups",
+            ]
+        )
+        // Only the app's own group: never another app's Keychain items.
+        #expect(plist["keychain-access-groups"] as? [String] == ["$(AppIdentifierPrefix)$(PRODUCT_BUNDLE_IDENTIFIER)"])
     }
 
     @Test func noNetworkingOrLoggingAPIsInSources() throws {
