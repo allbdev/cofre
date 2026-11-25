@@ -6,8 +6,9 @@
 ## To do now
 
 - [x] ~~**Sign it so it can use the Keychain.**~~ Personal Team added; `Config/Local.xcconfig` has its ID (25 Nov 2026).
-- [ ] **First run in Xcode.** `open Cofre.xcodeproj`, then ⌘R. The first build asks Xcode to create your "Apple Development" certificate and register the app ID `br.com.vinicius-albuquerque.cofre` on your team; allow it (and type your Mac password if Keychain Access asks to store the certificate). If Xcode says the bundle ID is taken, set `COFRE_BUNDLE_ID_PREFIX` in `Config/Local.xcconfig` to something else.
-- [ ] **Try it for real** (after signing: `open Cofre.xcodeproj`, ⌘R), and tell me what breaks or feels off:
+- [x] ~~**First run in Xcode.**~~ Signed with your Personal Team, Keychain working, installed in `/Applications` (25 Nov 2026).
+- [ ] **Re-install by 2 Dec 2026.** Free provisioning profiles last 7 days. When Cofre stops opening (or before), run `scripts/install.sh`. Your secrets stay. A paid developer account ($99/year) removes the 7-day limit.
+- [ ] **Try it for real** (open Cofre from Applications), and tell me what breaks or feels off:
   1. Add a secret by typing, and one with **Paste from Clipboard** (try a multi-line one, like an SSH key).
   2. Double-click a row: Touch ID asks once; copy a second one, which shouldn't ask again. Paste somewhere, wait 30 s, paste again: the clipboard should be empty.
   3. Press **⌃⌥K** from another app: the panel opens; type, Enter, then ⌘V into the app you were in.

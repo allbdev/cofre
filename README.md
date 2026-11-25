@@ -25,6 +25,14 @@ open Cofre.xcodeproj
 
 To use the real Keychain the app must be signed with your team (a free Apple ID works): copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and set `DEVELOPMENT_TEAM`. Without it, run the Debug build with the argument `-CofreStore memory` (secrets live only while the app runs; the scheme has it, switched off, under Run → Arguments).
 
+### Install on your Mac
+
+```sh
+scripts/install.sh          # signed Release build → /Applications/Cofre.app
+```
+
+With a free Personal Team, Apple's provisioning profile lasts 7 days: when Cofre stops opening, run the script again. Your secrets survive reinstalls (the Keychain ties them to your team and the bundle ID, not to a build).
+
 ## Layout
 
 | Path | What |
