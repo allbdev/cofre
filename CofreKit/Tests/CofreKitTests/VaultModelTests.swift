@@ -175,6 +175,31 @@ struct VaultModelTests {
         #expect(!model.isUnlocked)
     }
 
+    @Test func quittingClearsOurClipboard() async {
+        let token = await harness.add("Token", "x")
+        await model.copy(token.id)
+        model.prepareForQuit()
+        #expect(harness.pasteboard.contents == nil)
+    }
+
+    @Test func unsignedKeychainIsReportedAsUnavailableNotAsAnAlert() async {
+        await harness.store.setListFailure(.keychainUnavailable)
+        await model.reload()
+        #expect(model.isStoreUnavailable)
+        #expect(model.error == nil)
+        #expect(model.isLoaded)
+        await harness.store.setListFailure(nil)
+        await model.reload()
+        #expect(!model.isStoreUnavailable)
+    }
+
+    @Test func otherListFailuresAreAlerts() async {
+        await harness.store.setListFailure(.keychain(status: -1))
+        await model.reload()
+        #expect(model.error == .keychain(status: -1))
+        #expect(!model.isStoreUnavailable)
+    }
+
     @Test func systemEventsLock() async {
         await model.unlock()
         await model.handle(.screenLocked)

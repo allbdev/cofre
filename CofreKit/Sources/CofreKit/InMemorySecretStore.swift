@@ -15,6 +15,8 @@ public actor InMemorySecretStore: SecretStore {
     /// What `unlock` does: `nil` succeeds, an error makes it fail (to test cancel and failure).
     public var unlockFailure: VaultError?
     public private(set) var unlockCount = 0
+    /// When set, `list()` fails with it (to test an unusable store).
+    public var listFailure: VaultError?
 
     public init(now: @escaping @Sendable () -> Date = { Date() }) {
         self.now = now
@@ -24,8 +26,13 @@ public actor InMemorySecretStore: SecretStore {
         unlockFailure = failure
     }
 
+    public func setListFailure(_ failure: VaultError?) {
+        listFailure = failure
+    }
+
     public func list() throws(VaultError) -> [SecretSummary] {
-        entries.values.map(\.summary).sorted { $0.createdAt < $1.createdAt }
+        if let listFailure { throw listFailure }
+        return entries.values.map(\.summary).sorted { $0.createdAt < $1.createdAt }
     }
 
     public func add(name: String, value: SecretValue) throws(VaultError) -> SecretSummary {

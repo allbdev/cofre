@@ -47,6 +47,8 @@ public final class VaultModel {
     public private(set) var isUnlocked = false
     public private(set) var lastCopy: CopyReceipt?
     public private(set) var backupStatus: BackupStatus = .nothingToBackUp
+    /// The store can't be used at all (an unsigned build can't reach the Keychain).
+    public private(set) var isStoreUnavailable = false
     /// The last failure, for an alert. Set to `nil` to dismiss.
     public var error: VaultError?
 
@@ -82,6 +84,9 @@ public final class VaultModel {
         do {
             secrets = try await store.list()
             isUnlocked = await store.isUnlocked
+            isStoreUnavailable = false
+        } catch .keychainUnavailable {
+            isStoreUnavailable = true
         } catch {
             self.error = error
         }
@@ -173,6 +178,11 @@ public final class VaultModel {
         isUnlocked = false
         clipboard.clearIfStillOurs()
         lastCopy = nil
+    }
+
+    /// Runs as the app quits: clear our clipboard value now, synchronously.
+    public func prepareForQuit() {
+        clipboard.clearIfStillOurs()
     }
 
     public func noteActivity() {
