@@ -4,7 +4,7 @@
 > A native macOS app for the passwords, API keys, tokens and connection strings a developer copies every day. Each item is a name and a value; the value is never shown, only copied.
 > Free, open-source. A portfolio piece: the code is part of the product.
 
-**Author:** Vinícius Albuquerque Barros · **Written:** 25 Nov 2026 · **Status:** Phase 0 underway
+**Author:** Vinícius Albuquerque Barros · **Written:** 25 Nov 2026 · **Status:** phases 0–5 built (logic tested; not yet run against the real Keychain, which needs signing)
 
 Ordered task list: `ROADMAP.md`. Project rules: `CLAUDE.md`. Things only the developer can do: `TODO_FOR_YOU.md`. Export file format: `docs/EXPORT_FORMAT.md`.
 

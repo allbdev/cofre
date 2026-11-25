@@ -14,7 +14,7 @@ Repo: https://github.com/allbdev/cofre (remote `origin`, branch `main`).
 
 This app's whole job is keeping secrets. These are not style preferences:
 
-- **No network, ever.** Never add the `com.apple.security.network.*` entitlements, `URLSession` calls, analytics, crash reporters or update checkers. A test checks the entitlements file.
+- **No network, ever.** Never add the `com.apple.security.network.*` entitlements, `URLSession` calls, analytics, crash reporters or update checkers. `SecurityRulesTests` checks the entitlements file and scans the sources for networking and logging APIs.
 - **Values are never displayed.** No "reveal" button, no value in a `Text`, tooltip, accessibility label, log, error message or notification. Input is a `SecureField` or "Paste from clipboard".
 - **`SecretValue` only.** Secret bytes travel as `SecretValue` (redacted `description`, not `Codable`). Never convert to `String` except in the pasteboard adapter and the export codec. Never `print`, `Logger` or `dump` one.
 - **No home-made crypto.** Storage is the Keychain; the export uses CryptoKit AES-GCM and CommonCrypto PBKDF2 exactly as `docs/EXPORT_FORMAT.md` says. Format changes bump `version` and keep reading old versions.
@@ -64,10 +64,11 @@ This app's whole job is keeping secrets. These are not style preferences:
 
 ## Architecture notes
 
-- **Layout.** `CofreKit/` (Swift package: `CofreKit` pure logic, `CofreKeychain` Keychain store), `Cofre/` (app: `App/`, `Views/`, `Adapters/`, `Localizable.xcstrings`, entitlements), `Config/` (xcconfigs), `scripts/`, `docs/`.
+- **Layout.** `CofreKit/` (Swift package: `CofreKit` pure logic, `CofreKeychain` Keychain store), `Cofre/` (app: `App/`, `Views/`, `Adapters/`, `Localizable.xcstrings`), `Config/` (xcconfigs, `Cofre.entitlements`, `Info.plist` with the `.cofre` file type), `scripts/`, `docs/`. The Xcode project uses a synchronized folder for `Cofre/`: new files there are picked up without editing the project.
 - **Stores.** `SecretStore` protocol; `KeychainSecretStore` in release; debug builds accept `-CofreStore memory` (unsigned runs, screenshots). The app shows a clear message if the Keychain says the app isn't entitled (unsigned build).
 - **Signing.** `Config/Base.xcconfig` includes an optional, git-ignored `Config/Local.xcconfig` that sets `DEVELOPMENT_TEAM`. CI and `scripts/check.sh` build with signing off.
 - **Unlock.** `KeychainSecretStore` keeps one `LAContext` per unlocked session; `lock()` invalidates it. Listing names never needs auth.
+- **Checking the UI without clicking.** Debug builds accept `-CofreStore memory -CofreDemoData YES -CofreSnapshotDir <dir>` (add `-AppleLanguages '(pt-BR)'` for Portuguese): the app fills itself with made-up secrets, draws its windows to PNGs and quits. The main window's list rows don't draw this way; everything else does. Use it after UI changes, in both languages.
 - **Accessibility.** Every control is keyboard-reachable; icon-only buttons have accessibility labels; the panel works with VoiceOver.
 
 ## Workflow

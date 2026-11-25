@@ -25,7 +25,7 @@ UTF-8 JSON, at most 10 MB:
 
 ## Key and encryption
 
-1. `key = PBKDF2-HMAC-SHA256(passphrase as UTF-8, salt, iterations, 32 bytes)`
+1. `key = PBKDF2-HMAC-SHA256(passphrase, salt, iterations, 32 bytes)`, with the passphrase normalized to Unicode NFC and encoded as UTF-8 (so "ç" typed either way gives the same key)
 2. `ciphertext || tag = AES-256-GCM(key, nonce, payload, aad)`
 3. `aad` (additional authenticated data) is the UTF-8 string
    `cofre-export/1/PBKDF2-HMAC-SHA256/<iterations>/<salt base64>/AES-256-GCM`,
@@ -70,12 +70,13 @@ Duplicate names inside one file are kept as they are and treated as clashes by t
 With Python and `cryptography`, for an emergency without the app:
 
 ```python
-import base64, json, hashlib
+import base64, json, hashlib, unicodedata
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 f = json.load(open("backup.cofre"))
 salt = base64.b64decode(f["kdf"]["salt"])
-key = hashlib.pbkdf2_hmac("sha256", b"your passphrase", salt, f["kdf"]["iterations"], 32)
+passphrase = unicodedata.normalize("NFC", "your passphrase").encode()
+key = hashlib.pbkdf2_hmac("sha256", passphrase, salt, f["kdf"]["iterations"], 32)
 aad = f'cofre-export/1/PBKDF2-HMAC-SHA256/{f["kdf"]["iterations"]}/{f["kdf"]["salt"]}/AES-256-GCM'.encode()
 payload = AESGCM(key).decrypt(base64.b64decode(f["cipher"]["nonce"]), base64.b64decode(f["ciphertext"]), aad)
 for item in json.loads(payload)["items"]:
