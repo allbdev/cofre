@@ -5,7 +5,8 @@
 
 ## To do now
 
-- [ ] **Sign it so it can use the Keychain.** Xcode → Settings → Accounts → **+** → your Apple ID (a free Personal Team is enough). Then `cp Config/Local.xcconfig.example Config/Local.xcconfig` and put your team ID in `DEVELOPMENT_TEAM` (it's under Accounts → your team). Until then the app shows "Keychain not available".
+- [x] ~~**Sign it so it can use the Keychain.**~~ Personal Team added; `Config/Local.xcconfig` has its ID (25 Nov 2026).
+- [ ] **First run in Xcode.** `open Cofre.xcodeproj`, then ⌘R. The first build asks Xcode to create your "Apple Development" certificate and register the app ID `br.com.vinicius-albuquerque.cofre` on your team; allow it (and type your Mac password if Keychain Access asks to store the certificate). If Xcode says the bundle ID is taken, set `COFRE_BUNDLE_ID_PREFIX` in `Config/Local.xcconfig` to something else.
 - [ ] **Try it for real** (after signing: `open Cofre.xcodeproj`, ⌘R), and tell me what breaks or feels off:
   1. Add a secret by typing, and one with **Paste from Clipboard** (try a multi-line one, like an SSH key).
   2. Double-click a row: Touch ID asks once; copy a second one, which shouldn't ask again. Paste somewhere, wait 30 s, paste again: the clipboard should be empty.

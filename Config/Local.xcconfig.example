@@ -1,6 +1,8 @@
 // Copy to Config/Local.xcconfig (git-ignored) and fill in.
-// Your team ID: Xcode → Settings → Accounts → your team, or developer.apple.com → Membership.
 // A free Apple ID ("Personal Team") is enough to run Cofre on your own Mac.
+// Your team ID: paid accounts see it at developer.apple.com → Membership. Xcode doesn't show a
+// Personal Team's ID; after adding your Apple ID in Xcode → Settings → Apple Accounts, run:
+//   defaults read com.apple.dt.Xcode IDEProvisioningTeamByIdentifier | grep teamID
 
 DEVELOPMENT_TEAM = ABCDE12345
 
