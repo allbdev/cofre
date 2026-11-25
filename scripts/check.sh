@@ -12,8 +12,8 @@ step "Lint"
 xcrun swift-format lint --strict --parallel --recursive Cofre CofreKit/Sources CofreKit/Tests CofreKit/Package.swift
 
 step "Tests"
-swift test --package-path CofreKit 2>&1 | tail -n 25
-test "${PIPESTATUS[0]}" -eq 0
+# Show failures (✘ and the lines after them) and each run's summary.
+swift test --package-path CofreKit 2>&1 | grep -E -A3 "✘|error:|Test run with|➜ Suite"
 
 step "Build (unsigned)"
 xcodebuild \
