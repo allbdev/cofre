@@ -21,7 +21,7 @@
 ## Decisions (quick)
 
 - [x] ~~**Hotkey.**~~ ⌃⌥K stays the default (25 Nov 2026). Settings can't change it yet (roadmap task 30).
-- [ ] **Dock icon.** Cofre shows in the Dock and the menu bar. Some people prefer menu bar only for this kind of tool; say if you want that (or a setting).
+- [x] ~~**Dock icon.**~~ Cofre stays in both the Dock and the menu bar (25 Nov 2026).
 - [x] ~~**Name.**~~ Cofre (25 Nov 2026). Unique among Mac dev tools; "Cofre …" photo-vault apps exist on the iPhone App Store, and a small Rust CLI called `cofre` exists. If you ever publish on the App Store, use a longer display name ("Cofre — Dev Secrets").
 - [x] ~~**Language.**~~ English + PT-BR (25 Nov 2026).
 - [x] ~~**Git.**~~ Claude commits as it goes and asks before every push (25 Nov 2026).
