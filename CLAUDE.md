@@ -32,6 +32,7 @@ This app's whole job is keeping secrets. These are not style preferences:
 | **Interface text** (windows, menus, buttons, alerts, errors, accessibility labels) | **English** and **Brazilian Portuguese (PT-BR)**, always both |
 
 - Interface text is written as English literals in SwiftUI (`Text("Add secret")`) or `String(localized:)`, and translated in `Cofre/Localizable.xcstrings`. Error messages from `CofreKit` are `LocalizedStringResource`s resolved in the app, translated in the same catalog.
+- Xcode only extracts strings from the app target, so catalog entries for `CofreKit` messages and `#if DEBUG` text are marked `"extractionState" : "manual"` (otherwise Xcode flags them stale and offers to delete them). Keep Xcode's own JSON formatting in the catalog.
 - Every new interface string gets its PT-BR translation in the same change. `LocalizationTests` fails when a literal in `Cofre/` or a message in `CofreKit` is missing from the catalog or has no PT-BR.
 - Don't build strings by concatenation; use interpolation (`Text("Copied \(name)")` → key `Copied %@`).
 

@@ -1,946 +1,970 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Add": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicionar"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "↩ copy · ↑↓ choose · esc close" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "↩ copiar · ↑↓ escolher · esc fechar"
           }
         }
       }
     },
-    "Add an API key, token or password. Its value is never shown, only copied.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicione uma chave de API, um token ou uma senha. O valor nunca aparece, só é copiado."
+    "Add" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar"
           }
         }
       }
     },
-    "Added: %lld · Replaced: %lld · Skipped: %lld": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicionados: %lld · Substituídos: %lld · Ignorados: %lld"
+    "Add an API key, token or password. Its value is never shown, only copied." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione uma chave de API, um token ou uma senha. O valor nunca aparece, só é copiado."
           }
         }
       }
     },
-    "At least %lld characters. A few unrelated words work well.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pelo menos %lld caracteres. Algumas palavras sem relação entre si funcionam bem."
+    "Added: %lld · Replaced: %lld · Skipped: %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionados: %lld · Substituídos: %lld · Ignorados: %lld"
           }
         }
       }
     },
-    "Cancel": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar"
+    "At least %lld characters. A few unrelated words work well." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pelo menos %lld caracteres. Algumas palavras sem relação entre si funcionam bem."
           }
         }
       }
     },
-    "Clear": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Limpar"
+    "Cancel" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         }
       }
     },
-    "Clear the clipboard after": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Limpar a área de transferência após"
+    "Clear" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpar"
           }
         }
       }
     },
-    "Clear the clipboard after saving": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Limpar a área de transferência ao salvar"
+    "Clear the clipboard after" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpar a área de transferência após"
           }
         }
       }
     },
-    "Cofre": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cofre"
+    "Clear the clipboard after saving" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpar a área de transferência ao salvar"
           }
         }
       }
     },
-    "Cofre also locks when your Mac sleeps, the screen locks or you quit.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O Cofre também tranca quando o Mac dorme, a tela é bloqueada ou você sai do app."
+    "Cofre" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cofre"
           }
         }
       }
     },
-    "Cofre couldn't confirm it's you.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O Cofre não conseguiu confirmar que é você."
+    "Cofre also locks when your Mac sleeps, the screen locks or you quit." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Cofre também tranca quando o Mac dorme, a tela é bloqueada ou você sai do app."
           }
         }
       }
     },
-    "Cofre is locked. Unlock it to use your secrets.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O Cofre está trancado. Destranque para usar seus segredos."
+    "Cofre couldn't confirm it's you." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Cofre não conseguiu confirmar que é você."
           }
         }
       }
     },
-    "Confirm": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confirmar"
+    "Cofre is locked. Unlock it to use your secrets." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Cofre está trancado. Destranque para usar seus segredos."
           }
         }
       }
     },
-    "Copied “%@” · clears in %lld s": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "“%@” copiado · some em %lld s"
+    "Confirm" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmar"
           }
         }
       }
     },
-    "Copy Value": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Copiar valor"
+    "Copied “%@” · clears in %lld s" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” copiado · some em %lld s"
           }
         }
       }
     },
-    "Debug run with -CofreStore memory: secrets are forgotten when Cofre quits.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Execução de depuração com -CofreStore memory: os segredos somem quando o Cofre fecha."
+    "Copy Value" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar valor"
           }
         }
       }
     },
-    "Decrypt": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Descriptografar"
+    "Debug run with -CofreStore memory: secrets are forgotten when Cofre quits." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Execução de depuração com -CofreStore memory: os segredos somem quando o Cofre fecha."
           }
         }
       }
     },
-    "Delete": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar"
+    "Decrypt" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descriptografar"
           }
         }
       }
     },
-    "Delete “%@”?": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar “%@”?"
+    "Delete" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apagar"
           }
         }
       }
     },
-    "Delete…": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apagar…"
+    "Delete “%@”?" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apagar “%@”?"
           }
         }
       }
     },
-    "Done": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+    "Delete…" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apagar…"
           }
         }
       }
     },
-    "Every secret is encrypted into one file with a passphrase you choose. Keep the file anywhere; without the passphrase it's useless, and nobody can recover a forgotten passphrase.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todos os segredos são criptografados em um arquivo com uma frase-senha que você escolhe. Guarde o arquivo onde quiser: sem a frase-senha ele é inútil, e ninguém consegue recuperar uma frase-senha esquecida."
+    "Done" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
     },
-    "Export a Backup": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar um backup"
+    "e.g. Stripe secret key (prod)" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ex.: chave secreta do Stripe (prod)"
           }
         }
       }
     },
-    "Export…": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exportar…"
+    "Every secret is encrypted into one file with a passphrase you choose. Keep the file anywhere; without the passphrase it's useless, and nobody can recover a forgotten passphrase." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos os segredos são criptografados em um arquivo com uma frase-senha que você escolhe. Guarde o arquivo onde quiser: sem a frase-senha ele é inútil, e ninguém consegue recuperar uma frase-senha esquecida."
           }
         }
       }
     },
-    "For a quick look, run the Debug build with -CofreStore memory.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Para dar uma olhada rápida, rode a build Debug com -CofreStore memory."
+    "Export a Backup" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar um backup"
           }
         }
       }
     },
-    "For those:": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Para esses:"
+    "Export…" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar…"
           }
         }
       }
     },
-    "Give the secret a name.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dê um nome ao segredo."
+    "For a quick look, run the Debug build with -CofreStore memory." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para dar uma olhada rápida, rode a build Debug com -CofreStore memory."
           }
         }
       }
     },
-    "Import": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Importar"
+    "For those:" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para esses:"
           }
         }
       }
     },
-    "Import “%@”": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Importar “%@”"
+    "Give the secret a name." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dê um nome ao segredo."
           }
         }
       }
     },
-    "Import…": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Importar…"
+    "Import" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importar"
           }
         }
       }
     },
-    "In-memory store": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Armazenamento em memória"
+    "Import “%@”" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importar “%@”"
           }
         }
       }
     },
-    "Keep both": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Manter os dois"
+    "Import…" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importar…"
           }
         }
       }
     },
-    "Keep mine (skip)": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Manter o meu (ignorar)"
+    "In-memory store" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Armazenamento em memória"
           }
         }
       }
     },
-    "Keychain not available": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chaves indisponíveis"
+    "Keep both" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manter os dois"
           }
         }
       }
     },
-    "Lock": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trancar"
+    "Keep mine (skip)" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manter o meu (ignorar)"
           }
         }
       }
     },
-    "Lock after inactivity": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trancar após inatividade"
+    "Keychain not available" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaves indisponíveis"
           }
         }
       }
     },
-    "Locked": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trancado"
+    "Lock" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trancar"
           }
         }
       }
     },
-    "Locked. Copying a secret asks for Touch ID or your password.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trancado. Copiar um segredo pede o Touch ID ou a sua senha."
+    "Lock after inactivity" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trancar após inatividade"
           }
         }
       }
     },
-    "Name": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nome"
+    "Locked" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trancado"
           }
         }
       }
     },
-    "Names can be at most %lld characters.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Os nomes podem ter no máximo %lld caracteres."
+    "Locked. Copying a secret asks for Touch ID or your password." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trancado. Copiar um segredo pede o Touch ID ou a sua senha."
           }
         }
       }
     },
-    "Names must fit on one line.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O nome precisa caber em uma linha."
+    "Name" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome"
           }
         }
       }
     },
-    "New Secret": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Novo segredo"
+    "Names can be at most %lld characters." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os nomes podem ter no máximo %lld caracteres."
           }
         }
       }
     },
-    "New Secret (⌘N)": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Novo segredo (⌘N)"
+    "Names must fit on one line." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O nome precisa caber em uma linha."
           }
         }
       }
     },
-    "New Secret…": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Novo segredo…"
+    "New Secret" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novo segredo"
           }
         }
       }
     },
-    "No backup yet. If this Mac is lost, your secrets go with it.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ainda não há backup. Se este Mac for perdido, seus segredos vão junto."
+    "New Secret (⌘N)" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novo segredo (⌘N)"
           }
         }
       }
     },
-    "No secrets yet": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nenhum segredo ainda"
+    "New Secret…" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novo segredo…"
           }
         }
       }
     },
-    "OK": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
+    "No backup yet. If this Mac is lost, your secrets go with it." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ainda não há backup. Se este Mac for perdido, seus segredos vão junto."
           }
         }
       }
     },
-    "Open Cofre": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abrir o Cofre"
+    "No secrets yet" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum segredo ainda"
           }
         }
       }
     },
-    "Passphrase": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frase-senha"
+    "OK" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
     },
-    "Paste from Clipboard": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Colar da área de transferência"
+    "Open Cofre" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir o Cofre"
           }
         }
       }
     },
-    "Pasted · length %lld": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Colado · tamanho %lld"
+    "Passphrase" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frase-senha"
           }
         }
       }
     },
-    "Quick access": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Acesso rápido"
+    "Paste from Clipboard" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colar da área de transferência"
           }
         }
       }
     },
-    "Quit": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sair"
+    "Pasted · length %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colado · tamanho %lld"
           }
         }
       }
     },
-    "Rename": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renomear"
+    "Quick access" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acesso rápido"
           }
         }
       }
     },
-    "Rename “%@”": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renomear “%@”"
+    "Quit" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sair"
           }
         }
       }
     },
-    "Rename…": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renomear…"
+    "Rename" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renomear"
           }
         }
       }
     },
-    "Replace": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Substituir"
+    "Rename “%@”" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renomear “%@”"
           }
         }
       }
     },
-    "Replace Value…": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Substituir valor…"
+    "Rename…" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renomear…"
           }
         }
       }
     },
-    "Replace the value of “%@”": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Substituir o valor de “%@”"
+    "Replace" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Substituir"
           }
         }
       }
     },
-    "Search": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar"
+    "Replace the value of “%@”" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Substituir o valor de “%@”"
           }
         }
       }
     },
-    "Search secrets": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscar segredos"
+    "Replace Value…" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Substituir valor…"
           }
         }
       }
     },
-    "Secrets": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Segredos"
+    "Search" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar"
           }
         }
       }
     },
-    "Secrets changed since your last backup.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Os segredos mudaram desde o último backup."
+    "Search secrets" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar segredos"
           }
         }
       }
     },
-    "Secrets in this backup: %lld": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Segredos neste backup: %lld"
+    "Secrets" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segredos"
           }
         }
       }
     },
-    "Settings…": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajustes…"
+    "Secrets changed since your last backup." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os segredos mudaram desde o último backup."
           }
         }
       }
     },
-    "Something went wrong": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Algo deu errado"
+    "Secrets in this backup: %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segredos neste backup: %lld"
           }
         }
       }
     },
-    "That secret no longer exists.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esse segredo não existe mais."
+    "Settings…" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes…"
           }
         }
       }
     },
-    "The Keychain isn't available to this copy of Cofre. It must be signed with a development team (see the README).": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As Chaves do macOS não estão disponíveis para esta cópia do Cofre. Ela precisa ser assinada com um time de desenvolvimento (veja o README)."
+    "Something went wrong" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo deu errado"
           }
         }
       }
     },
-    "The Keychain reported an error (%@).": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As Chaves do macOS informaram um erro (%@)."
+    "That secret no longer exists." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esse segredo não existe mais."
           }
         }
       }
     },
-    "The clipboard has no text.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A área de transferência não tem texto."
+    "The clipboard has no text." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A área de transferência não tem texto."
           }
         }
       }
     },
-    "The file decrypted, but its contents are damaged.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O arquivo foi descriptografado, mas o conteúdo está danificado."
+    "The file decrypted, but its contents are damaged." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O arquivo foi descriptografado, mas o conteúdo está danificado."
           }
         }
       }
     },
-    "The passphrases don't match.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As frases-senha não são iguais."
+    "The Keychain isn't available to this copy of Cofre. It must be signed with a development team (see the README)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As Chaves do macOS não estão disponíveis para esta cópia do Cofre. Ela precisa ser assinada com um time de desenvolvimento (veja o README)."
           }
         }
       }
     },
-    "The value is empty.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O valor está vazio."
+    "The Keychain reported an error (%@)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As Chaves do macOS informaram um erro (%@)."
           }
         }
       }
     },
-    "The value is removed from the Keychain. This can't be undone.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O valor é apagado das Chaves do macOS. Não dá para desfazer."
+    "The passphrases don't match." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As frases-senha não são iguais."
           }
         }
       }
     },
-    "The value is too large (64 KB at most).": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O valor é grande demais (no máximo 64 KB)."
+    "The value is empty." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O valor está vazio."
           }
         }
       }
     },
-    "There's already a secret called “%@”.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Já existe um segredo chamado “%@”."
+    "The value is removed from the Keychain. This can't be undone." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O valor é apagado das Chaves do macOS. Não dá para desfazer."
           }
         }
       }
     },
-    "This export file uses settings Cofre doesn't accept.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este arquivo de exportação usa configurações que o Cofre não aceita."
+    "The value is too large (64 KB at most)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O valor é grande demais (no máximo 64 KB)."
           }
         }
       }
     },
-    "This export was made by a newer Cofre (format %@). Update Cofre to import it.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esta exportação foi feita por um Cofre mais novo (formato %@). Atualize o Cofre para importá-la."
+    "There's already a secret called “%@”." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Já existe um segredo chamado “%@”."
           }
         }
       }
     },
-    "This file is too large to be a Cofre export.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este arquivo é grande demais para ser uma exportação do Cofre."
+    "This export file uses settings Cofre doesn't accept." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este arquivo de exportação usa configurações que o Cofre não aceita."
           }
         }
       }
     },
-    "This isn't a Cofre export file.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este não é um arquivo de exportação do Cofre."
+    "This export was made by a newer Cofre (format %@). Update Cofre to import it." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta exportação foi feita por um Cofre mais novo (formato %@). Atualize o Cofre para importá-la."
           }
         }
       }
     },
-    "Type or paste the value": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Digite ou cole o valor"
+    "This file is too large to be a Cofre export." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este arquivo é grande demais para ser uma exportação do Cofre."
           }
         }
       }
     },
-    "Unlock": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Destrancar"
+    "This isn't a Cofre export file." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este não é um arquivo de exportação do Cofre."
           }
         }
       }
     },
-    "Unlocked": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Destrancado"
+    "Type or paste the value" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digite ou cole o valor"
           }
         }
       }
     },
-    "Unlocked. Click to lock now.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Destrancado. Clique para trancar agora."
+    "Unlock" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destrancar"
           }
         }
       }
     },
-    "Unlocking was cancelled.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O desbloqueio foi cancelado."
+    "unlock your secrets" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "destrancar seus segredos"
           }
         }
       }
     },
-    "Updated %@": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Atualizado %@"
+    "Unlocked" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destrancado"
           }
         }
       }
     },
-    "Use a passphrase of at least %lld characters.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Use uma frase-senha com pelo menos %lld caracteres."
+    "Unlocked. Click to lock now." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destrancado. Clique para trancar agora."
           }
         }
       }
     },
-    "Use the backup's value": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usar o valor do backup"
+    "Unlocking was cancelled." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O desbloqueio foi cancelado."
           }
         }
       }
     },
-    "Value": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Valor"
+    "Updated %@" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualizado %@"
           }
         }
       }
     },
-    "With a name you already use: %lld": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Com um nome que você já usa: %lld"
+    "Use a passphrase of at least %lld characters." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use uma frase-senha com pelo menos %lld caracteres."
           }
         }
       }
     },
-    "Wrong passphrase, or the file was modified.": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frase-senha errada, ou o arquivo foi modificado."
+    "Use the backup's value" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar o valor do backup"
           }
         }
       }
     },
-    "e.g. Stripe secret key (prod)": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ex.: chave secreta do Stripe (prod)"
+    "Value" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valor"
           }
         }
       }
     },
-    "unlock your secrets": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "destrancar seus segredos"
+    "With a name you already use: %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com um nome que você já usa: %lld"
           }
         }
       }
     },
-    "↩ copy · ↑↓ choose · esc close": {
-      "localizations": {
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "↩ copiar · ↑↓ escolher · esc fechar"
+    "Wrong passphrase, or the file was modified." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frase-senha errada, ou o arquivo foi modificado."
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
